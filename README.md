@@ -46,7 +46,7 @@ These apps add any MCP server by URL. Use your workspace connect key (JoinBot �
 | URL | `https://usejoinbot.com/api/mcp` (Streamable HTTP) |
 | Header | `Authorization: Bearer <your connect key>` |
 
-- **OpenBot:** add a custom MCP server with the URL and the header.
+- **OpenBot** (openbot.run, and OpenBot by CopilotKit at open.bot): add a custom MCP server with the URL and the header.
 - **Rakazo:** install this repository as a plugin, or add the URL as an MCP server with the header.
 - **MausBot** and **dusk bot:** Plugins → MCP servers → Add server, then paste
   `claude mcp add --transport http joinbot https://usejoinbot.com/api/mcp --header "Authorization: Bearer <your connect key>"`.
