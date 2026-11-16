@@ -5,6 +5,7 @@
   "description": "Join Google Meet, Teams and Zoom meetings as a named AI participant that answers out loud when spoken to.",
   "author": {
     "name": "JoinBot",
+    "email": "moe@moelabs.dev",
     "url": "https://usejoinbot.com"
   },
   "homepage": "https://usejoinbot.com",
@@ -17,5 +18,92 @@
     "zoom",
     "mcp"
   ],
-  "repository": "https://github.com/engmsaleh/joinbot-plugin"
+  "repository": "https://github.com/engmsaleh/joinbot-plugin",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "JoinBot",
+        "shortDescription": "Join meetings and answer out loud",
+        "longDescription": "JoinBot puts your agent into Zoom, Google Meet and Microsoft Teams calls as a visible, named participant, such as \"Atlas (AI)\". It hears everything said, and when someone says its name it answers out loud, using your agent's own knowledge and tools. Links and detail go to the meeting chat. After the call, your agent can fetch the speaker-labelled transcript to summarise it. Sign in with your JoinBot account; a workspace owner approves each bot before it can join meetings. Transcripts are deleted after 24 hours.",
+        "developerName": "JoinBot",
+        "category": "Productivity",
+        "capabilities": [
+          "Join meetings",
+          "Answer out loud",
+          "Post to meeting chat",
+          "Read meeting transcripts"
+        ],
+        "websiteURL": "https://usejoinbot.com",
+        "supportURL": "mailto:moe@moelabs.dev",
+        "privacyPolicyURL": "https://usejoinbot.com/privacy",
+        "termsOfServiceURL": "https://usejoinbot.com/terms",
+        "defaultPrompt": [
+          "Connect to JoinBot.",
+          "Join this meeting and answer questions about our project: <meeting link>",
+          "Summarise the meeting you just left."
+        ],
+        "brandColor": "#0E6B4C",
+        "brandColorDark": "#5FD3A4",
+        "composerIcon": "./assets/icon.png",
+        "composerIconDark": "./assets/icon-dark.png",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Register the agent with JoinBot",
+              "prompt": "Connect to JoinBot as Atlas.",
+              "tools_triggered": "register",
+              "expected_behavior": "Registers a bot named Atlas with wake name Atlas and reports its bot_id and status (approved in the review workspace, which has auto-approve on)."
+            },
+            {
+              "description": "List meetings",
+              "prompt": "Which meetings am I scheduled for in JoinBot?",
+              "tools_triggered": "list_meetings",
+              "expected_behavior": "Returns the workspace's current and scheduled meetings, or says there are none."
+            },
+            {
+              "description": "Join a meeting",
+              "prompt": "Join this Google Meet as Atlas and answer questions: https://meet.google.com/<reviewer meeting code>",
+              "tools_triggered": "register, join_meeting, listen",
+              "expected_behavior": "Atlas (AI) joins the meeting within about a minute and starts listening. When a participant says 'Atlas, what time is it in London?' it answers out loud."
+            },
+            {
+              "description": "Post to the meeting chat",
+              "prompt": "Post the link https://usejoinbot.com in the meeting chat.",
+              "tools_triggered": "list_meetings, post_chat",
+              "expected_behavior": "The link appears in the meeting chat and the agent confirms it was posted."
+            },
+            {
+              "description": "Leave and summarise",
+              "prompt": "Leave the meeting and summarise what was said.",
+              "tools_triggered": "leave_meeting, get_transcript",
+              "expected_behavior": "The bot leaves the call; the agent summarises the transcript without inventing content."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Meeting link from an unsupported platform",
+              "prompt": "Join this Webex meeting: https://example.webex.com/meet/abc"
+            },
+            {
+              "description": "Unsupported payment",
+              "prompt": "Pay my JoinBot invoice."
+            },
+            {
+              "description": "Another workspace's meeting",
+              "prompt": "Read the transcript of a meeting from a workspace I'm not in."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      },
+      "publication": {
+        "release_notes": "Initial release: join Zoom, Google Meet and Teams meetings, answer out loud, post to the chat and read transcripts."
+      }
+    }
+  }
 }
