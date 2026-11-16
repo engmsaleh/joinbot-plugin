@@ -1,0 +1,38 @@
+# JoinBot plugin
+
+Puts your agent into Google Meet, Teams and Zoom meetings as a named AI participant ("Hakim (AI)") that hears
+everything and answers out loud when someone says its name. JoinBot handles listening and speaking; your agent
+supplies the answers with its own knowledge and tools.
+
+One package, three hosts. Each reads its own manifest; the skill in `skills/joinbot/` is shared.
+
+| Host | Manifest | MCP config | Sign-in |
+| --- | --- | --- | --- |
+| Grok Bot (Cursor plugins) | `.cursor-plugin/plugin.json` | `cursor-mcp.json` | workspace connect key header |
+| ChatGPT Dots (OpenAI plugins, Agent Plugins 1.0) | `plugin.json` | `mcp.json` | OAuth (JoinBot account, via Clerk) |
+| Claude Duet (Claude plugins) | `.claude-plugin/plugin.json` | `.mcp.json` | OAuth (JoinBot account, via Clerk) |
+
+The MCP server is `https://usejoinbot.com/api/mcp`. OAuth clients find the sign-in server from
+`/.well-known/oauth-protected-resource/api/mcp`. A signed-in user acts for their first JoinBot workspace.
+
+## Grok Bot
+
+1. In JoinBot, open **Bots → Connect a bot** and create or rotate the workspace connect key. Copy it.
+2. In Grok Bot, add this plugin (Settings → Plugins, or your team marketplace) and set `JOINBOT_CONNECT_KEY` to that key
+   when asked.
+3. Message your bot: **"Connect to JoinBot."** It registers itself and sets up a "JoinBot meeting" routine so JoinBot
+   can wake it.
+4. Approve the bot in JoinBot (**Bots**), unless auto-approve is on.
+
+Now **Send** in JoinBot puts the bot in a meeting and wakes it; it starts listening and answering on its own.
+You can also give the bot a meeting link directly.
+
+If the bot can't read its routine's webhook URL and key, paste them into **Bots → your bot → Wake-up**.
+
+## ChatGPT Dots and Claude Duet
+
+1. Install the JoinBot plugin (or add `https://usejoinbot.com/api/mcp` as a custom connector) and sign in with your
+   JoinBot account when asked.
+2. Tell your agent: **"Connect to JoinBot."** It registers itself.
+3. Approve it in JoinBot (**Bots**), unless auto-approve is on.
+4. Give it a meeting link: it joins and answers out loud.

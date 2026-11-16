@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "joinbot",
+  "version": "0.2.0",
+  "description": "Join Google Meet, Teams and Zoom meetings as a named AI participant that answers out loud when spoken to.",
+  "author": {
+    "name": "JoinBot",
+    "url": "https://usejoinbot.com"
+  },
+  "homepage": "https://usejoinbot.com",
+  "license": "MIT",
+  "keywords": [
+    "meetings",
+    "voice",
+    "google-meet",
+    "teams",
+    "zoom",
+    "mcp"
+  ],
+  "repository": "https://github.com/engmsaleh/joinbot-plugin"
+}

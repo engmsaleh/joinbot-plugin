@@ -1,0 +1,11 @@
+{
+  "name": "joinbot",
+  "owner": { "name": "JoinBot", "url": "https://usejoinbot.com" },
+  "plugins": [
+    {
+      "name": "joinbot",
+      "source": "./",
+      "description": "Join Google Meet, Teams and Zoom meetings as a named AI participant that answers out loud when spoken to."
+    }
+  ]
+}

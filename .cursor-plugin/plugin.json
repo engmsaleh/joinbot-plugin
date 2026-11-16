@@ -1,0 +1,35 @@
+{
+  "name": "joinbot",
+  "description": "Join Google Meet, Teams and Zoom meetings as a named AI participant that answers out loud when spoken to.",
+  "version": "0.2.0",
+  "author": {
+    "name": "JoinBot"
+  },
+  "homepage": "https://usejoinbot.com",
+  "license": "MIT",
+  "keywords": [
+    "meetings",
+    "voice",
+    "google-meet",
+    "teams",
+    "zoom",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./cursor-mcp.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "JOINBOT_CONNECT_KEY": {
+        "type": "string",
+        "title": "JoinBot connect key",
+        "description": "Your workspace connect key, from JoinBot > Bots > Connect a bot."
+      }
+    },
+    "required": [
+      "JOINBOT_CONNECT_KEY"
+    ]
+  },
+  "logo": "assets/logo.png",
+  "repository": "https://github.com/engmsaleh/joinbot-plugin"
+}

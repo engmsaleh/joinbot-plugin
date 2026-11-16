@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "joinbot": { "type": "http", "url": "https://usejoinbot.com/api/mcp" }
+  }
+}

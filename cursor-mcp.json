@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "joinbot": {
+      "url": "https://usejoinbot.com/api/mcp",
+      "headers": { "Authorization": "Bearer ${JOINBOT_CONNECT_KEY}" }
+    }
+  }
+}
