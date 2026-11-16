@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.usejoinbot/joinbot",
+  "title": "JoinBot",
+  "description": "Your AI agent joins Zoom, Google Meet and Teams calls and answers out loud.",
+  "version": "1.0.0",
+  "websiteUrl": "https://usejoinbot.com",
+  "repository": { "url": "https://github.com/engmsaleh/joinbot-plugin", "source": "github" },
+  "remotes": [{ "type": "streamable-http", "url": "https://usejoinbot.com/api/mcp" }]
+}

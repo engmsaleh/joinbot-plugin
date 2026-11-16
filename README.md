@@ -4,7 +4,7 @@ Puts your agent into Google Meet, Teams and Zoom meetings as a named AI particip
 everything and answers out loud when someone says its name. JoinBot handles listening and speaking; your agent
 supplies the answers with its own knowledge and tools.
 
-One package for Grok Bot, ChatGPT Dots and Claude Duet; the same MCP server also works in OpenBot, Rakazo, MausBot and dusk bot. Each reads its own manifest; the skill in `skills/joinbot/` is shared.
+One package for Grok Bot, ChatGPT Dots and Claude Duet; the same MCP server also works in OpenBot, Rakazo, Rerun, MausBot and dusk bot. Each reads its own manifest; the skill in `skills/joinbot/` is shared.
 
 | Host | Manifest | MCP config | Sign-in |
 | --- | --- | --- | --- |
@@ -37,7 +37,7 @@ If the bot can't read its routine's webhook URL and key, paste them into **Bots 
 3. Approve it in JoinBot (**Bots**), unless auto-approve is on.
 4. Give it a meeting link: it joins and answers out loud.
 
-## OpenBot, Rakazo, MausBot and dusk bot
+## OpenBot, Rakazo, Rerun, MausBot and dusk bot
 
 These apps add any MCP server by URL. Use your workspace connect key (JoinBot → **Bots → Connect a bot**):
 
@@ -48,8 +48,9 @@ These apps add any MCP server by URL. Use your workspace connect key (JoinBot �
 
 - **OpenBot** (openbot.run, and OpenBot by CopilotKit at open.bot): add a custom MCP server with the URL and the header.
 - **Rakazo:** install this repository as a plugin, or add the URL as an MCP server with the header.
+- **Rerun** (rerun.build): add an MCP server with the URL and the header.
 - **MausBot** and **dusk bot:** Plugins → MCP servers → Add server, then paste
   `claude mcp add --transport http joinbot https://usejoinbot.com/api/mcp --header "Authorization: Bearer <your connect key>"`.
 
 Then tell your bot **"Connect to JoinBot."** and approve it in JoinBot. If your app can start the bot from a webhook
-(Rakazo and MausBot can), the skill sets up wake-up so JoinBot can send it to meetings from the app.
+(Rakazo, Rerun and MausBot can), the skill sets up wake-up so JoinBot can send it to meetings from the app.
