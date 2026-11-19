@@ -1,6 +1,6 @@
 # JoinBot plugin
 
-[![JoinBot MCP server](https://mcprush.com/badge/joinbot-mcp/card.svg)](https://mcprush.com/to/joinbot-mcp?ref=badge)
+[![JoinBot MCP on mcprush](https://mcprush.com/badge/joinbot-mcp/score.svg)](https://mcprush.com/to/joinbot-mcp?ref=badge)
 
 Puts your agent into Google Meet, Teams and Zoom meetings as a named AI participant ("Hakim (AI)") that hears
 everything and answers out loud when someone says its name. JoinBot handles listening and speaking; your agent
